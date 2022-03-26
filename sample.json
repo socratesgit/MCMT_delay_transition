@@ -1,0 +1,42 @@
+{
+    "process" : [
+        {
+            "name": "Master",
+            "parametrized": false,
+            "state_var": "Mloc",
+            "state_list": [
+                {"name": "idle",
+                "inv": null},
+                {"name": "waitTO",
+                "inv": "TO"},
+                {"name": "proc",
+                "inv": null},
+                {"name": "waitTD",
+                "inv": "TD"},
+                {"name": "error",
+                "inv": null}
+            ],
+            "clock_var": "Mc",
+            "other_vars": ["tmpA","tmpD","mem"]
+        },{
+            "name": "Slave",
+            "parametrized": true,
+            "state_var": "Sloc",
+            "state_list": [
+                {"name":"idle",
+                "inv": null},
+                {"name":"check",
+                "inv": "R"},
+                {"name":"proc",
+                "inv": "R"},
+                {"name":"format",
+                "inv": "R"},
+                {"name":"error",
+                "inv": "R"}
+            ],
+            "clock_var": "Sc",
+            "other_vars": ["bsucc","Sadd","Sbroad"]
+        }
+    ],
+    "stateless_var" : ["Gadd","Gdata","Gbroad"]
+}
